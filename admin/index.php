@@ -9,45 +9,63 @@ require_once "../head.php";
 require_once "menu.php";
 ?> 
 
-<div class="container jumbotron top">
-  <h1 class="display-4">Hello, world!</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-  <hr class="my-4">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+<div class="jumbotron top">
+	<div class="container clearfix">
+	  <h1 class="display-4">Διαχείριση άρθρων!</h1>
+	  <p class="lead">Καλωσήρθατε στη σελίδα διαχείρισης.</p>
+	  <hr class="my-4">
+	  <p>Πατήστε το κουμπί για δημιουργία νέου άρθρου.</p>
+	  <a class="btn btn-success float-right" href="#" role="button">Νέο Άρθρο</a>
+	</div>  
 </div>
 
 <div class="container shadow p-3 mb-5 bg-white rounded">
-	<form>
+	<form method="POST" target="index.php">
+	
   <div class="form-group">
-    <label for="exampleFormControlInput1">Email address</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    <label for="title">Τίτλος</label>
+    <input type="text" class="form-control" placeholder="Εισάγετε τίτλο άρθρου" name="title">
   </div>
+  
   <div class="form-group">
-    <label for="exampleFormControlSelect1">Example select</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
+    <label for="category">Κατηγορία</label>
+    <select class="form-control" name="category">
+      <option value="4">Αθλητικά</option>
+      <option value="1">Γενικά</option>
+      <option value="2">Κοινωνικά</option>
+      <option value="5">Πολιτική</option>
+      <option value="3">Τεχνολογία</option>
     </select>
   </div>
+  
+ 
   <div class="form-group">
-    <label for="exampleFormControlSelect2">Example multiple select</label>
-    <select multiple class="form-control" id="exampleFormControlSelect2">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
+    <label for="content">Άρθρο</label>
+    <textarea class="form-control" name="content"></textarea>
   </div>
+  
   <div class="form-group">
-    <label for="exampleFormControlTextarea1">Example textarea</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <label for="image">Εικόνα</label>
+    <input type="file" class="form-control" name="image">
   </div>
+
+  <div class="form-group">
+	<div class="form-check">
+		<input type="radio" class="form-check-input" name="publish" value="1"> 
+		<label class="form-check-label" for="publish">Δημοσιευμένο
+		</label>
+	</div>
+	
+	<div class="form-check">
+		<input type="radio" class="form-check-input" name="publish"value="0"> 
+		<label class="form-check-label" for="publish">Μη Δημοσιευμένο
+		</label>
+	</div>
+  </div>  
+  
 </form>
 </div>
 
-
+<?php 
+ require_once "footer.php";
+?>
